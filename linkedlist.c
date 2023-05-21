@@ -39,7 +39,7 @@ void insertVehicle(char* platNomor, char* merk, char* model, char* tahun, char* 
         current->next = newVehicle;
         newVehicle->prev = current;
     }
-    printf("Vehicle with registration number %s has been added.\n", platNomor);
+    printf("\nData mobil dengan plat nomor %s sudah ditambahkan.\n", platNomor);
 }
 
 void deleteVehicle(char* platNomor) {
@@ -55,44 +55,44 @@ void deleteVehicle(char* platNomor) {
                 current->next->prev = current->prev;
             }
             free(current);
-            printf("Vehicle with registration number %s has been deleted.\n", platNomor);
+            printf("Data mobil dengan plat nomro %s sudah dihapus.\n", platNomor);
             return;
         }
         current = current->next;
     }
-    printf("Vehicle with registration number %s not found.\n", platNomor);
+    printf("Mobil dengan plat nomor %s tidak ditemuka.\n", platNomor);
 }
 
 void searchVehicle(char* platNomor) {
     struct Vehicle* current = head;
     while (current != NULL) {
         if (strcmp(current->platNomor, platNomor) == 0) {
-            printf("Vehicle found:\n");
-            printf("Registration Number: %s\n", current->platNomor);
-            printf("Brand: %s\n", current->merk);
+            printf("Data mobil ditemukan:\n");
+            printf("Plat nomor: %s\n", current->platNomor);
+            printf("Merk: %s\n", current->merk);
             printf("Model: %s\n", current->model);
             printf("Tahun: %s\n", current->tahun);
-            printf("Tahun: %s\n", current->harga);
+            printf("Harga: %s\n", current->harga);
             return;
         }
         current = current->next;
     }
-    printf("Vehicle with registration number %s not found.\n", platNomor);
+    printf("Mobil dengan plat nomro %s tidak ditemukan.\n", platNomor);
 }
 
 void displayAllVehicles() {
     struct Vehicle* current = head;
     if (current == NULL) {
-        printf("No vehicles available.\n");
+        printf("Tidak ada mobil yang tersedia.\n");
         return;
     }
-    printf("All vehicles:\n");
+    printf("Berikut daftar mobil yang tersedia:\n");
     while (current != NULL) {
-        printf("Registration Number: %s\n", current->platNomor);
-        printf("Brand: %s\n", current->merk);
+        printf("Plat nomor: %s\n", current->platNomor);
+        printf("Merk: %s\n", current->merk);
         printf("Model: %s\n", current->model);
         printf("Tahun: %s\n", current->tahun);
-        printf("Tahun: %s\n", current->harga);
+        printf("Harga: %s\n", current->harga);
         printf("------------------------\n");
         current = current->next;
     }
@@ -113,6 +113,8 @@ int main() {
     char merk[20];
     char model[20];
     char tahun[20];
+    char harga[50];
+    
     int i, menu;
 
     for(i = 0; i < 45; i++){
@@ -145,20 +147,51 @@ int main() {
         printf("5. Keluar\n");
         printf("Pilih menu: ");
         scanf("%d", &menu);
-
+        
         system("cls");
 
         switch(menu){
             case 1: //menu tambah mobil
+                char platNomorBaru[20];
+                char merkBaru[20];
+                char modelBaru[20];
+                char tahunBaru[20];
+                char hargaBaru[50];
+                
+                printf("=== Menu Tambah Mobil ===\n\n");
+                printf("Masukkan plat nomor: ");
+                scanf("%s", platNomorBaru);
+                printf("Masukkan merk: ");
+                scanf("%s", merkBaru);
+                printf("Masukkan model: ");
+                scanf("%s", modelBaru);
+                printf("Masukkan tahun: ");
+                scanf("%s", tahunBaru);
+                printf("Masukkan harga (format: .. juta): ");
+                scanf("%s", hargaBaru);
+                
+                insertVehicle(platNomorBaru, merkBaru, modelBaru, tahunBaru, hargaBaru);
+                
+                system("pause");
+                system("cls");
                 break;
-            
+
             case 2: //menu lihat daftar mobil
+                
+                system("pause");
+                system("cls");
                 break;
             
             case 3: //cari mobil berdasarkan kategori
+                
+                system("pause");
+                system("cls");
                 break;
            
             case 4: //hapus data mobil
+                
+                system("pause");
+                system("cls");
                 break;
             
             case 5: //keluar
@@ -179,16 +212,13 @@ int main() {
     }while(menu != 5);
 
     printf("\n\n");
-    
+
     insertVehicle("ABCDE", "Toyota", "Camry", "2019", "200 juta");
     insertVehicle("CD5678", "Honda", "Civic", "2020", "150 juta");
  	insertVehicle("EF9012", "Ford", "Mustang", "2015", "300 juta");
  	insertVehicle("GH3456", "BMW", "X5", "2018", "400 juta");
  
  	displayAllVehicles();
-
- 	printf("Enter registration number: ");
-    scanf("%s", platNomor);
     
     searchVehicle(platNomor);
     
