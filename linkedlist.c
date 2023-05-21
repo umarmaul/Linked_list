@@ -18,7 +18,7 @@ struct Vehicle* createVehicle(const char* platNomor, const char* merk, const cha
     strcpy(newVehicle->platNomor, platNomor);
     strcpy(newVehicle->merk, merk);
     strcpy(newVehicle->model, model);
-    strcpy(newVehicle->model, tahun);
+    strcpy(newVehicle->tahun, tahun);
     newVehicle->prev = NULL;
     newVehicle->next = NULL;
     return newVehicle;
