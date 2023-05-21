@@ -109,10 +109,10 @@ int main() {
     char model[20];
     char tahun[20];
     
-    insertVehicle("AB1234", "Toyota", "Camry");
-    insertVehicle("CD5678", "Honda", "Civic");
- 	insertVehicle("EF9012", "Ford", "Mustang");
- 	insertVehicle("GH3456", "BMW", "X5");
+    insertVehicle("AB1234", "Toyota", "Camry", "2019");
+    insertVehicle("CD5678", "Honda", "Civic", "2020");
+ 	insertVehicle("EF9012", "Ford", "Mustang", "2015");
+ 	insertVehicle("GH3456", "BMW", "X5", "2018");
  
  	displayAllVehicles();
 
