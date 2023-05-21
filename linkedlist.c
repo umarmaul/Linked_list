@@ -218,6 +218,7 @@ int main() {
         printf("3. Cari mobil berdasarkan kategori\n");
         printf("4. Hapus data mobil\n");
         printf("5. Keluar\n");
+
         printf("Pilih menu: ");
         scanf("%d", &menu);
 
@@ -270,39 +271,38 @@ int main() {
                 printf("Pilihan: ");
                 scanf("%d", &pilih);
 
-                while(pilih < 6 || pilih > 0){
                 switch(pilih){
                     case 1:
                         printf("masukkan plat nomor: ");
-                        scanf("%s", platNomor);
+                        scanf("%s\n", platNomor);
                         searchVehiclebyPlat(platNomor);
 
                         break;
         
                     case 2:
                         printf("masukkan merk: ");
-                        scanf("%s", merk);
+                        scanf("%s\n", merk);
                         searchVehiclebyMerk(merk);
 
                         break;
 
                     case 3:
                         printf("masukkan model: ");
-                        scanf("%s", model);
+                        scanf("%s\n", model);
                         searchVehiclebyPlat(model);
 
                         break;
 
                     case 4:
                         printf("masukkan tahun: ");
-                        scanf("%s", tahun);
+                        scanf("%s\n", tahun);
                         searchVehiclebyPlat(tahun);
 
                         break;
 
                     case 5:
                         printf("masukkan harga: ");
-                        scanf("%s", harga);
+                        scanf("%s\n", harga);
                         searchVehiclebyPlat(harga);
 
                         break;
@@ -310,7 +310,6 @@ int main() {
                     default:
                         printf("input tidak valid, silahkan ulangi");
                         break;
-                }
                 }
 
                 system("pause");
